@@ -21,8 +21,6 @@ var Pike = {
     }
   },
 };
-//var output = [];
-//for ( var i = 0; i <= this.hours.length; i++){
 
 
 var SeaTac = {
