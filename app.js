@@ -49,6 +49,7 @@ Store.tableHours = function() {
 Store.tableHours();
 
 Store.prototype.tableContent = function() {
+  var cookiesDay = 0;
   var tblEl = document.getElementById('table');
   var tbody = document.createElement('tbody');
   // tbody.id = 'tbod';
@@ -59,12 +60,19 @@ Store.prototype.tableContent = function() {
   trEl.appendChild(tdEl);
   for(var i = 0; i <= 14; i++) {
     var cookieC = this.cookieCount();
+    cookiesDay += cookieC;
     tdEl = document.createElement('td');
     tdEl.textContent = cookieC;
     trEl.appendChild(tdEl);
   }
+  var dataTotal = document.createElement('td');
+  tdEl.textContent = cookiesDay;
+  tblEl.appendChild(dataTotal);
 };
-stores [0].tableContent();
+
+for(var k = 0; k < 5; k++){
+  stores [k].tableContent();
+}
 
 //       var newLi = document.createElement('li');
 //       var newContent = document.createTextNode(this.hours[i] + ': ' + cookieCount + ' cookies');
