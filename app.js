@@ -31,18 +31,20 @@ stores [0].cookieCount();
 
 Store.header = function() {
   var tblEl = document.getElementById('table');
-  var tbody = document.createElement('tbody');
-  tblEl.appendChild(tbody);
+  var thead = document.createElement('thead');
+  tblEl.appendChild(thead);
+  tblEl.setAttribute('style','text-align:center;');
   var trEl = document.createElement('tr');
-  tbody.appendChild(trEl);
+  thead.appendChild(trEl);
   var tdEl = document.createElement('td');
-  tdEl.setAttribute('style','background-color:white;');
-  // tdEl.setAttribute('style','maragin: 65px;');
+  tdEl.setAttribute('style','text-align:center;','border: 1px solid white;');
   tdEl.textContent = '';
   trEl.appendChild(tdEl);
-  for(var i = 0; i <= 14; i++) {
+  for(var i = 0; i <= 15; i++) {
     tdEl = document.createElement('td');
+    tdEl.setAttribute('style','text-align:center;');
     var time = hours[i];
+    trEl.setAttribute('style','text-align:center;');
     tdEl.textContent = time;
     trEl.appendChild(tdEl);
   }
