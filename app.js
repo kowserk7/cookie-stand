@@ -17,7 +17,6 @@ new Store ('SeaTac Airport', 3, 24, 1.2);
 new Store ('Seattle Center', 11, 38, 3.7);
 new Store ('Capitol Hill', 20, 38, 2.3);
 new Store ('Alki', 2, 26, 1.2);
-new Store ('Total');
 
 Store.prototype.randomCust = function () {
   return Math.round(Math.random() * (this.max - this.min)) + this.min;
@@ -75,6 +74,6 @@ Store.prototype.tableContent = function() {
   tblEl.appendChild(dataTotal);
 };
 
-for(var k = 0; k < 6; k++){
+for(var k = 0; k < 5; k++){
   stores [k].tableContent();
 }
