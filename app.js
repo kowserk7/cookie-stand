@@ -28,23 +28,18 @@ Store.prototype.cookieCount = function () {
 };
 stores [0].cookieCount();
 
-
 Store.header = function() {
   var tblEl = document.getElementById('table');
   var thead = document.createElement('thead');
   tblEl.appendChild(thead);
-  tblEl.setAttribute('style','text-align:center;');
   var trEl = document.createElement('tr');
   thead.appendChild(trEl);
   var tdEl = document.createElement('td');
-  tdEl.setAttribute('style','text-align:center;','border: 1px solid white;');
   tdEl.textContent = '';
   trEl.appendChild(tdEl);
   for(var i = 0; i <= 15; i++) {
     tdEl = document.createElement('td');
-    tdEl.setAttribute('style','text-align:center;');
     var time = hours[i];
-    trEl.setAttribute('style','text-align:center;');
     tdEl.textContent = time;
     trEl.appendChild(tdEl);
   }
@@ -77,3 +72,24 @@ Store.prototype.tableContent = function() {
 for(var k = 0; k < 5; k++){
   stores [k].tableContent();
 }
+
+var formEl = document.getElementById('form');
+function onSubmit(event) {
+  event.preventDefault();
+  console.log('event object', event.target.id.value);
+  console.log('the form was submitted');
+  var myFormData = {
+    id: event.target.id.value,
+    min: event.target.min.value,
+    max: event.target.max.value,
+    avg: event.target.avg.value,
+  };
+  // myFormData.min = event.target.min.value;
+  // myFormData.max = event.target.max.value;
+  // myFormData.avg = event.target.avg.value;
+  // myFormData.id = event.target.id.value;
+  console.log('my form data', myFormData);
+  new Store (myFormData.id, myFormData.min, myFormData.max, myFormData.avg);
+  console.log('new info', Store.prototype.tableContent);
+}
+formEl.addEventListener('submit', onSubmit);

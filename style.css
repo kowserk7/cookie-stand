@@ -1,8 +1,15 @@
 html {
   background-color: lightsalmon;
 }
-#table{
+table{
   background-color: lightgrey;
   border: 1px solid black;
   width: 100%;
+  text-align: center;
+}
+td{
+  padding: 2px;
+}
+thead{
+  border: 1px solid white;
 }
