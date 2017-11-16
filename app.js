@@ -1,7 +1,9 @@
 'use strict';
+
 var stores = [];
 
 var hours = ['6:00 AM', '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM','6:00 PM','7:00 PM','8:00 PM','Total'];
+console.log(hours);
 
 function Store (id, min, max, avg){
   this.id = id;
@@ -28,7 +30,7 @@ Store.prototype.cookieCount = function () {
 };
 stores [0].cookieCount();
 
-Store.header = function() {
+Store.prototype.header = function() {
   var tblEl = document.getElementById('table');
   var thead = document.createElement('thead');
   tblEl.appendChild(thead);
@@ -44,7 +46,7 @@ Store.header = function() {
     trEl.appendChild(tdEl);
   }
 };
-Store.header();
+stores [0].header();
 
 Store.prototype.tableContent = function() {
   var cookiesDay = 0;
@@ -84,10 +86,6 @@ function onSubmit(event) {
     max: event.target.max.value,
     avg: event.target.avg.value,
   };
-  // myFormData.min = event.target.min.value;
-  // myFormData.max = event.target.max.value;
-  // myFormData.avg = event.target.avg.value;
-  // myFormData.id = event.target.id.value;
   console.log('my form data', myFormData);
   var newStore = new Store (myFormData.id, myFormData.min, myFormData.max, myFormData.avg);
   newStore.tableContent();
