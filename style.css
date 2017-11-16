@@ -2,12 +2,37 @@ html {
   background-color: lightsalmon;
   color: darkgreen;
 }
+body{
+  position: relative;top: 25px; top: Center; left: 55px;
+  width:90%
+}
 table{
   background-color: lightgreen;
   border: 2px solid white;
-  width: 100%;
+  width: 95;
   text-align: center;
+  padding: 10px;
 }
+thead{
+  border: darkgreen;
+}
+form{
+  text-align: center;
+  width: 350px;
+  height: 156px;
+  background-color: lightgreen;
+  border: 2px solid white;
+  position: relative; top:75px;  left:425px;
+}
+input{
+  margin: 9px;
+  position: relative; left: 10px;
+}
+label{
+  font-size: 18px;
+  padding: 15px;
+}
+
 td{
   padding: 2px;
   font-size: 18px;
@@ -18,8 +43,6 @@ thead{
 tbody{
   border: 1px solid white;
 }
-h3{
-}
 button{
   color: darkgreen;
   font-size: 20px;
@@ -27,7 +50,7 @@ button{
   border-radius: 4px;
   padding: 12px 28px;
   float: left;
-    position: fixed;
-    top: 610PX;
-    left: 10px;
+    position: relative;
+    top: 50px  ;
+    left: 110px;
 }
