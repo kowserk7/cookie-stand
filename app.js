@@ -89,7 +89,8 @@ function onSubmit(event) {
   // myFormData.avg = event.target.avg.value;
   // myFormData.id = event.target.id.value;
   console.log('my form data', myFormData);
-  new Store (myFormData.id, myFormData.min, myFormData.max, myFormData.avg);
-  console.log('new info', Store.prototype.tableContent);
+  var newStore = new Store (myFormData.id, myFormData.min, myFormData.max, myFormData.avg);
+  newStore.tableContent();
 }
 formEl.addEventListener('submit', onSubmit);
+console.log('submit', onSubmit());
