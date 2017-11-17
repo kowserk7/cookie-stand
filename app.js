@@ -37,9 +37,16 @@ function getRandomNum(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
 
+function createTable() {
+  var tableElement = document.getElementById('table');
+  tableElement.id = 'newBody';
+  tableElement.appendChild(createTableHead());
+  tableElement.appendChild(createTableBody());
+}
+
 function createTableHead() {
   var tableHeadElement = document.createElement('thead');
-  var tableHeadRow = (' ', hours, 'Totals');
+  var tableHeadRow =  createTableRow(' ', hours, 'Totals');
   tableHeadElement.appendChild(tableHeadRow);
   return tableHeadElement;
 }
@@ -47,7 +54,7 @@ console.log(createTableHead());
 
 function createTableBody() {
   var tableBodyElement = document.createElement('tbody');
-  for (var k = 0; k < hours.length; k++){
+  for (var k = 0; k < stores.length; k++){
     var bodyRow = createTableRow(stores[k].id, stores[k].hourlyCookies, stores[k].dailyTotal);
     tableBodyElement.appendChild(bodyRow);
   }
@@ -55,30 +62,27 @@ function createTableBody() {
 }
 console.log(createTableBody);
 
-function createTableRow(varticalHeader, dataPoints){
+function createTableRow(varticalHeader, dataPoints, verticalFooter){
   var tableRowElements = document.createElement('tr');
-  var tableDataOne = document.createElement('tr');
+  var tableDataOne = document.createElement('td');
   tableDataOne.textContent = varticalHeader;
   tableRowElements.appendChild(tableDataOne);
 
-  for (var j = 0 ; j < dataPoints.length ; j++) {
+  for (var j = 0 ; j < dataPoints.length; j++) {
     var tableDataTwo = document.createElement('td');
     tableDataTwo.textContent = dataPoints[j];
     tableRowElements.appendChild(tableDataTwo);
   }
 
-  var tableDataThree = document.createElementp('td');
-  tableRowElements.textContent(tableDataThree);
+  var tableDataThree = document.createElement('td');
+  tableDataThree.textContent = verticalFooter;
+  tableRowElements.appendChild(tableDataThree);
   return tableRowElements;
 }
 
-function createTable() {
-  var tableElement = document.getElementById('table');
-  tableElement.appendChild(createTableHead());
-  tableElement.appendChild(createTableBody());
-}
 
 createTable();
+
 
 // Store.header = function() {
 //   var tblEl = document.getElementById('table');
@@ -124,7 +128,7 @@ createTable();
 // for(var k = 0; k < 5; k++){
 //   stores [k].tableContent();
 // }
-
+var newNumber = 5;
 var formEl = document.getElementById('form');
 function onSubmit(event) {
   event.preventDefault();
@@ -137,8 +141,15 @@ function onSubmit(event) {
     avg: event.target.avg.value,
   };
   console.log('my form data', myFormData);
-  var newStore = new Store (myFormData.id, myFormData.min, myFormData.max, myFormData.avg);
-  newStore.tableContent();
+  new Store (myFormData.id, myFormData.min, myFormData.max, myFormData.avg);
+  function updateTableBody() {
+    var bodyElementUpdate = document.getElementById('newBody');
+    var bodyRow = createTableRow(stores[newNumber].id, stores[newNumber].hourlyCookies, stores[newNumber].dailyTotal);
+    bodyElementUpdate.appendChild(bodyRow);
+    newNumber += 1;
+    return bodyElementUpdate;
+  }
+  updateTableBody();
 }
 formEl.addEventListener('submit', onSubmit);
 console.log('submit', onSubmit());
