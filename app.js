@@ -80,56 +80,12 @@ function createTableRow(varticalHeader, dataPoints, verticalFooter){
   return tableRowElements;
 }
 
-
 createTable();
 
-
-// Store.header = function() {
-//   var tblEl = document.getElementById('table');
-//   var thead = document.createElement('thead');
-//   tblEl.appendChild(thead);
-//   var trEl = document.createElement('tr');
-//   thead.appendChild(trEl);
-//   var tdEl = document.createElement('td');
-//   tdEl.textContent = '';
-//   trEl.appendChild(tdEl);
-//   for(var i = 0; i <= 15; i++) {
-//     tdEl = document.createElement('td');
-//     var time = hours[i];
-//     tdEl.textContent = time;
-//     trEl.appendChild(tdEl);
-//   }
-// };
-// Store.header();
-//
-// Store.prototype.tableContent = function() {
-//   var cookiesDay = 0;
-//   var tblEl = document.getElementById('table');
-//   var tbody = document.createElement('tbody');
-//   tblEl.appendChild(tbody);
-//   var trEl = document.createElement('tr');
-//   tbody.appendChild(trEl);
-//   var tdEl = document.createElement('td');
-//   tdEl.textContent = stores[k].id;
-//   trEl.appendChild(tdEl);
-//   for(var i = 0; i <= 15; i++) {
-//     var cookieC = this.cookieCount();
-//     cookiesDay += cookieC;
-//     tdEl = document.createElement('td');
-//     var cookies = cookieC;
-//     tdEl.textContent = cookies;
-//     trEl.appendChild(tdEl);
-//   }
-//   var dataTotal = document.createElement('td');
-//   tdEl.textContent = cookiesDay;
-//   tblEl.appendChild(dataTotal);
-// };
-//
-// for(var k = 0; k < 5; k++){
-//   stores [k].tableContent();
-// }
 var newNumber = 5;
+
 var formEl = document.getElementById('form');
+
 function onSubmit(event) {
   event.preventDefault();
   console.log('event object', event.target.id.value);
@@ -141,7 +97,9 @@ function onSubmit(event) {
     avg: event.target.avg.value,
   };
   console.log('my form data', myFormData);
+
   new Store (myFormData.id, myFormData.min, myFormData.max, myFormData.avg);
+
   function updateTableBody() {
     var bodyElementUpdate = document.getElementById('newBody');
     var bodyRow = createTableRow(stores[newNumber].id, stores[newNumber].hourlyCookies, stores[newNumber].dailyTotal);
@@ -151,5 +109,6 @@ function onSubmit(event) {
   }
   updateTableBody();
 }
+
 formEl.addEventListener('submit', onSubmit);
 console.log('submit', onSubmit());
