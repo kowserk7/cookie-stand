@@ -3,26 +3,37 @@
   <head>
     <title>Cookie-Stand</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Handlee" rel="stylesheet">
   </head>
   <body>
+    <header>
+      <h1>Salmon Cookies Sales</h1>
+      <img src="images/salmon.png" id="salmonpic" alt="salmonpic">
+    </header>
     <main>
-      <h1>Salmon Cookie Sales</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Main Page</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
       <table id ="table"></table>
-        <form id="form" alt="form" method="post">
-          <label for="id">Location: </label>
-          <input type="text" name="id" alt="id">
-          <label for="min">Minimum:</label>
-          <input type="number" name="min" alt="min">
-          <label for="max">Maximum:</label>
-          <input type="number" name="max" alt="max">
-          <label for="avg">Average:    </label>
-          <input type="number" name="avg" alt="avg">
-          <button type="submit" alt="submitbtn">submit</button>
+        <form alt="form" method="post">
+          <fieldset id="form">
+            <label for="id">Location: </label>
+            <input type="text" name="id" alt="id">
+            <label for="min">Minimum:</label>
+            <input type="number" name="min" alt="min">
+            <label for="max">Maximum:</label>
+            <input type="number" name="max" alt="max">
+            <label for="avg">Average:    </label>
+            <input type="number" name="avg" alt="avg">
+            <button type="submit" alt="submitbtn">submit</button>
+          </fieldset>
       </form>
     </main>
     <footer>
       <script src="app.js"></script>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
