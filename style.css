@@ -1,5 +1,5 @@
 html {
-  background-color: lightsalmon;
+  background-color: lightgrey;
   color: darkgreen;
 }
 body{
@@ -53,4 +53,8 @@ button{
     position: relative;
     top: 50px  ;
     left: 110px;
+}
+footer{
+  position:fixed;bottom:5px;left:0;right:0;height:30px;
+  text-align: center;
 }
